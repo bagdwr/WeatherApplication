@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             if (editText!=null){
                 val fragment=WeatherFragment(editText)
                 supportFragmentManager.beginTransaction()
-                    .add(R.id.fragmentWeatherLayout,fragment)
+                    .replace(R.id.fragmentWeatherLayout,fragment)
                     .commit()
             }
         }

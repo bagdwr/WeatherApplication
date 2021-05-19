@@ -45,19 +45,22 @@ class WeatherFragment(
         val countryName=view?.findViewById<TextView>(R.id.tvCountryName)
         val lon=view?.findViewById<TextView>(R.id.tvLon)
         val lat=view?.findViewById<TextView>(R.id.tvLat)
-        val MAIN=view?.findViewById<TextView>(R.id.tvMain)
         val description=view?.findViewById<TextView>(R.id.tvDescription)
         val temp=view?.findViewById<TextView>(R.id.tvTemp)
         val feelsTemp=view?.findViewById<TextView>(R.id.tvFeelsLike)
 
-        cityName!!.text="Город:${weather.name}"
-        countryName!!.text="Страна:${weather.sys.country}"
-        lon!!.text="Широта:${weather.coord.lon}"
-        lat!!.text="Долгота:${weather.coord.lat}"
-        MAIN!!.text="Погода:${weather.weather.main}"
-        description!!.text="Описание:${weather.weather.description}"
-        temp!!.text="Температура:${(weather.main.temp-273.15)}"
-        feelsTemp!!.text="Ощущение:${(weather.main.feels_like-273.15)}"
+        cityName!!.text="City: ${weather.name}"
+        countryName!!.text="Country: ${weather.sys.country}"
+        lon!!.text="longitude: ${weather.coord.lon}"
+        lat!!.text="latitude: ${weather.coord.lat}"
+        description!!.text="Description: ${weather.weather.get(0).getString()}"
+//        var s:String="Описание:"
+//        for (i in 0..weather.weather.size){
+//            s=s+weather.weather.get(i).getString()+"\n"
+//        }
+//        description!!.text=s
+        temp!!.text="Temperature: ${(weather.main.temp-273.15).toInt()}C"
+        feelsTemp!!.text="Feels like: ${(weather.main.feels_like-273.15).toInt()}C"
         Log.i("bind():","Error")
 
     }
