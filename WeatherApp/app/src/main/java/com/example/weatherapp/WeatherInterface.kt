@@ -11,6 +11,6 @@ interface WeatherInterface {
     fun getWeather(
         @Query("q") q:String,
         @Query("appid")appid:String
-    ):Call<MainWeather>
+    ):MainWeather
 
 }
